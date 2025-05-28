@@ -1,5 +1,6 @@
 ﻿FROM postgres:16
 
+# Cài đặt TimescaleDB
 RUN apt-get update && apt-get install -y \
     software-properties-common \
     wget \
@@ -10,4 +11,18 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# Tạo script khởi tạo để cấu hình TimescaleDB
 RUN echo "shared_preload_libraries = 'timescaledb'" >> /usr/share/postgresql/postgresql.conf.sample
+
+# Tạo init script
+COPY <<EOF /docker-entrypoint-initdb.d/01-timescaledb.sh
+#!/bin/bash
+set -e
+
+# Cấu hình TimescaleDB trong postgresql.conf
+echo "shared_preload_libraries = 'timescaledb'" >> /var/lib/postgresql/data/postgresql.conf
+
+# Restart không cần thiết vì đây là lúc khởi tạo
+EOF
+
+RUN chmod +x /docker-entrypoint-initdb.d/01-timescaledb.sh

@@ -18,8 +18,11 @@ version: '3.0'
 
 services:
   postgres:
-    restart: always
-    image: "postgres:16"
+#    image: "postgres:16"
+    build:
+      context: .
+      dockerfile: Dockerfile.postgres-timescale
+    restart: unless-stopped
     ports:
     - "5432"
     environment:

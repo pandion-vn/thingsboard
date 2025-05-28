@@ -41,40 +41,40 @@ scrape_configs:
     static_configs:
       - targets: [ 'tb-core1:8080' ]
 
-  - job_name: 'tb-core2'
-    metrics_path: /actuator/prometheus
-    static_configs:
-      - targets: [ 'tb-core2:8080' ]
+#  - job_name: 'tb-core2'
+#    metrics_path: /actuator/prometheus
+#    static_configs:
+#      - targets: [ 'tb-core2:8080' ]
 
   - job_name: 'tb-rule-engine1'
     metrics_path: /actuator/prometheus
     static_configs:
       - targets: [ 'tb-rule-engine1:8080' ]
 
-  - job_name: 'tb-rule-engine2'
-    metrics_path: /actuator/prometheus
-    static_configs:
-      - targets: [ 'tb-rule-engine2:8080' ]
+#  - job_name: 'tb-rule-engine2'
+#    metrics_path: /actuator/prometheus
+#    static_configs:
+#      - targets: [ 'tb-rule-engine2:8080' ]
 
   - job_name: 'tb-mqtt-transport1'
     metrics_path: /actuator/prometheus
     static_configs:
       - targets: [ 'tb-mqtt-transport1:8081' ]
 
-  - job_name: 'tb-mqtt-transport2'
-    metrics_path: /actuator/prometheus
-    static_configs:
-      - targets: [ 'tb-mqtt-transport2:8081' ]
+#  - job_name: 'tb-mqtt-transport2'
+#    metrics_path: /actuator/prometheus
+#    static_configs:
+#      - targets: [ 'tb-mqtt-transport2:8081' ]
 
   - job_name: 'tb-http-transport1'
     metrics_path: /actuator/prometheus
     static_configs:
       - targets: [ 'tb-http-transport1:8081' ]
 
-  - job_name: 'tb-http-transport2'
-    metrics_path: /actuator/prometheus
-    static_configs:
-      - targets: [ 'tb-http-transport2:8081' ]
+#  - job_name: 'tb-http-transport2'
+#    metrics_path: /actuator/prometheus
+#    static_configs:
+#      - targets: [ 'tb-http-transport2:8081' ]
 
   - job_name: 'tb-coap-transport'
     metrics_path: /actuator/prometheus

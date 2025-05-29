@@ -31,17 +31,17 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
       - 19090:9090
-    restart: always
+    restart: unless-stopped
   grafana:
     image: grafana/grafana
     user: "472"
     depends_on:
       - prometheus
     ports:
-      - 13001:3000
+      - 13033:3000
     volumes:
       - grafana_data:/var/lib/grafana
       - ./monitoring/grafana/provisioning/:/etc/grafana/provisioning/
     env_file:
       - monitoring/grafana/config.monitoring
-    restart: always
+    restart: unless-stopped
